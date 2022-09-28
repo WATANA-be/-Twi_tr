@@ -1,0 +1,23 @@
+<p style = "color:ffffff;">
+<h1>ひとりぼっちなTwitter</h1>
+</p>
+<% if flash[:notice] %>
+<%= flash[:notice] %>
+<% end %><br>
+<% @twitter.each do |twitter| %>
+    <%= twitter.message %>
+
+   
+    
+    <%= ((Time.current-twitter.tdate)/60).floor  %>分前
+    <%= link_to '削除',"/twitters/#{twitter.id}", method: :delete %>
+    <%= link_to '表示',"/twitters/#{twitter.id}" %>
+    <%= link_to '編集',"/twitters/#{twitter.id}/edit" %>
+    
+    <br>
+<% end %>
+
+<p><%= link_to 'つぶやく','twitters/new' %></p>
+<body bgcolor="#00acee">
+    
+</body>
