@@ -7,6 +7,10 @@ class TwittersController < ApplicationController
   end
   def create
     @twitter = Twitter.new(message: params[:twitter][:message],tdate: Time.current)
+    title = params[:twitter][:title]
+    image = Twitter.new(title: title) 
+    image.save 
+
     
     if @twitter.save
       flash[:notice] = 'Tweet成功だにゃ'

@@ -26,12 +26,15 @@
 <div class="contentA">
 
 <% @twitter.each do |twitter| %>
+    <p>😇名無しさん</p>
 
-    <%= twitter.message %>
+    <%= twitter.message %><br>
+    <%= image_tag 'warota.jpg',size: '100x100' %><br>
     
     <%= ((Time.current-twitter.tdate)/60).floor  %>分前
     <%= link_to '削除',"/twitters/#{twitter.id}", method: :delete %>
     <%= link_to '表示',"/twitters/#{twitter.id}" %>
+    
     <%= link_to '編集',"/twitters/#{twitter.id}/edit" %>
     
     
